@@ -8,7 +8,7 @@ export default function Header() {
             <div>
                 <Image src={logo} alt={""} className="w-[90px] ml-6"/>
             </div>
-            <div className="text-xl mr-6">
+            <div className="text-xl mr-6 font-bold text-white">
                 Đăng nhập
             </div>
         </div>

@@ -52,10 +52,11 @@ const cardList = [
 
 export default function BannerBlue() {
     const [currentIndex, setCurrentIndex] = useState(0);
+
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % cardList.length); // Chuyển sang thẻ tiếp theo
-        }, 7000);
+        }, 4000); // 4 giây mỗi thẻ
 
         return () => clearInterval(interval); // Dọn dẹp khi component bị unmount
     }, []);
@@ -63,20 +64,35 @@ export default function BannerBlue() {
     const cardVariants = {
         initial: {
             opacity: 0,
-            y: 50, // Xuất hiện từ dưới
+            y: "100%", // Bắt đầu từ dưới màn hình
         },
         animate: {
             opacity: 1,
-            y: 0, // Di chuyển vào vị trí trung tâm
+            y: "0%", // Di chuyển vào trung tâm
+            transition: {
+                duration: 1, // Thời gian xuất hiện
+                ease: "easeOut",
+            },
         },
         exit: {
             opacity: 0,
-            y: 50, // Biến mất và tụt xuống dưới
+            y: "100%", // Từ từ đi xuống màn hình
+            transition: {
+                duration: 1.5, // Thời gian biến mất
+                ease: "easeIn",
+            },
         },
     };
+
     return (
-        <div className="relative z-0 w-full h-screen flex items-center justify-center bg-gray-100 overflow-hidden">
-            <AnimatePresence exitBeforeEnter>
+        <div
+            className="relative z-0 w-full h-screen flex items-center justify-center overflow-hidden"
+            style={{
+                backgroundColor: cardList[currentIndex].background,
+                transition: "background-color 1.5s ease", // Hiệu ứng đổi màu mượt mà
+            }}
+        >
+            <AnimatePresence mode="wait">
                 {cardList.map((card, index) => {
                     if (index !== currentIndex) return null; // Chỉ hiển thị thẻ hiện tại
                     return (
@@ -86,20 +102,17 @@ export default function BannerBlue() {
                             initial="initial"
                             animate="animate"
                             exit="exit"
-                            transition={{ duration: 0.9 }}
-                            className="absolute w-full h-full shadow-lg overflow-hidden"
+                            className="absolute w-full h-full shadow-lg flex flex-col justify-end" // Hình ảnh nằm ở dưới cùng
                         >
-                            <div className="mb-auto flex justify-center">
-                                {/* Hình ảnh */}
+                            {/* Hình ảnh */}
+                            <div className="flex justify-center items-end h-full">
                                 <Image
                                     src={card.image}
                                     alt={card.title}
                                     height={500}
-                                    className=""
+                                    className="object-contain mb-0" // Thêm margin-bottom để cách một chút với viền
                                 />
                             </div>
-                            {/* Nội dung */}
-
                         </motion.div>
                     );
                 })}
@@ -108,12 +121,3 @@ export default function BannerBlue() {
     );
 }
 
-const image: React.CSSProperties = {
-    maxWidth: "80vw",
-}
-
-const shape: React.CSSProperties = {
-    strokeWidth: 10,
-    strokeLinecap: "round",
-    fill: "transparent",
-}
