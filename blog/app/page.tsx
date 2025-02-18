@@ -5,10 +5,13 @@ import EarnMoney from "./components/effectBanner/earnMoney";
 import KnowViewer from "./components/effectBanner/knowViewer";
 import Memmories from "./components/effectBanner/memories";
 import CreateBlog from "./components/effectBanner/createBlog";
+import Header from "./components/header";
+import FooterLanding from "./components/footerLanding";
 
 export default function Home() {
   return (
     <>
+      <Header />
       <BannerBlue />
       <PerfectDesign />
       <BuyaDomain />
@@ -16,6 +19,7 @@ export default function Home() {
       <KnowViewer />
       <Memmories />
       <CreateBlog />
+      <FooterLanding />
     </>
   );
 }

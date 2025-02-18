@@ -106,11 +106,11 @@ export default function BannerBlue() {
                 transition: "background-color 1.5s ease", // Hiệu ứng đổi màu mượt mà
             }}
         >
-            <div className="absolute top-[200px] w-[1000px] p-4 bg-opacity-70 text-white text-center">
-                <p className="text-4xl font-thin">Đăng nội dung thể hiện niềm đam mê theo cách của bạn</p>
-                <p className="mt-6 text-xl"> Dễ dàng tạo blog độc đáo và tuyệt đẹp.</p>
+            <div className="absolute top-[200px] w-[415px] xl:w-[1000px] p-4 bg-opacity-70 text-white text-center">
+                <p className="xl:text-4xl text-2xl font-thin">Đăng nội dung thể hiện niềm đam mê theo cách của bạn</p>
+                <p className="mt-6 xl:text-xl text-base"> Dễ dàng tạo blog độc đáo và tuyệt đẹp.</p>
             </div>
-            <p className="p-4 absolute top-[350px] bg-opacity-70 rounded-xl text-white text-center" style={{backgroundColor:"#ff8000"}}>Tạo blog của bạn</p>
+            <p className="p-4 absolute xl:top-[350px] bg-opacity-70 rounded-xl text-white text-center" style={{backgroundColor:"#ff8000"}}>Tạo blog của bạn</p>
             <AnimatePresence mode="wait">
                 {cardList.map((card, index) => {
                     if (index !== currentIndex) return null; // Chỉ hiển thị thẻ hiện tại

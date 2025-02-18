@@ -1,7 +1,5 @@
 "use client"
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import logo from "../img/Logo.png"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,11 +26,12 @@ export default function Header() {
         isScrolled ? "bg-white shadow-md" : "bg-transparent"
       } fixed top-0 left-0 z-20 w-full transition-all duration-300`}
     >
-      <div className="flex justify-between items-center w-full">
-        <div>
-          <Image src={logo} alt="Logo" layout="intrinsic" width={90} className="w-[90px] ml-6" />
+      <div className={` flex justify-between items-center w-full p-4 `}>
+        <div className={`${isScrolled ? "text-black" : "text-white"} font-sans text-2xl ml-3`}>
+          CreateBlog
+          {/* <Image src={logo} alt="Logo" layout="intrinsic" width={90} className="w-[90px] ml-6" /> */}
         </div>
-        <div className={` ${isScrolled ? "text-black" : "text-white"} text-xl mr-6 font-bold `}>
+        <div className={`${isScrolled ? "text-black" : "text-white"} text-xl mr-6 font-bold `}>
           Đăng nhập
         </div>
       </div>
