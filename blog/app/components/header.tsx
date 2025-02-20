@@ -6,6 +6,7 @@ import { gapi } from "gapi-script";
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
    console.log(isScrolled)
+   const CLIENT_ID = "196827591512-bm0890su1khv4684h8ker8nvci710sf0.apps.googleusercontent.com"
 
    const fetchBlogData = async () => {
     const BLOG_URL = "https://dunglt2001.blogspot.com/";
