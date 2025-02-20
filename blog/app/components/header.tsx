@@ -6,7 +6,6 @@ import { gapi } from "gapi-script";
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
    console.log(isScrolled)
-   const CLIENT_ID = "196827591512-bm0890su1khv4684h8ker8nvci710sf0.apps.googleusercontent.com"
 
    const fetchBlogData = async () => {
     const BLOG_URL = "https://dunglt2001.blogspot.com/";
@@ -23,20 +22,18 @@ export default function Header() {
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const handleScroll = () => {
-        // Kiểm tra nếu cuộn màn hình vượt quá 50px
-        setIsScrolled(window.scrollY > 50);
-      };
+    const handleScroll = () => {
+      // Kiểm tra nếu cuộn màn hình vượt quá 50px
+      setIsScrolled(window.scrollY > 50);
+    };
 
-      // Gắn sự kiện scroll
-      window.addEventListener("scroll", handleScroll);
+    // Gắn sự kiện scroll
+    window.addEventListener("scroll", handleScroll);
 
-      // Hủy bỏ sự kiện khi component bị unmount
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }
+    // Hủy bỏ sự kiện khi component bị unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   useEffect(() => {
