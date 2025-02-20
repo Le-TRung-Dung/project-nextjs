@@ -11,7 +11,7 @@ import FooterLanding from "./components/footerLanding";
 export default function Home() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <BannerBlue />
       <PerfectDesign />
       <BuyaDomain />

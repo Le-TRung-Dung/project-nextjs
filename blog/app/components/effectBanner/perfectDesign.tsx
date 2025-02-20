@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import Image from "next/image";
 import butchi from "../../img/butchi.png";
 import banner from "../../img/bannercontainer.png";
@@ -32,15 +32,6 @@ export default function PerfectDesign() {
 
         return () => observer.disconnect();
     }, [hasAnimated]); // Thêm `hasAnimated` để ngăn việc observer chạy lại khi hiệu ứng đã chạy
-
-    const variants = {
-        hidden: { opacity: 0, y: 100 }, // Bắt đầu từ phía dưới
-        visible: {
-            opacity: 1,
-            y: 0, // Trượt lên phía trên
-            transition: { duration: 0.5 }, // Thời gian animation
-        },
-    };
 
     return (
         <div

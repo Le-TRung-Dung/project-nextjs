@@ -13,6 +13,7 @@
     "antd": "^5.24.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "gapi-script": "^1.2.0",
     "lucide-react": "^0.471.1",
     "motion": "^11.18.0",
     "next": "14.2.23",
