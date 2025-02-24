@@ -10,7 +10,6 @@ import { useMedia } from "use-media";
 export default function PerfectDesign() {
     const [isInView, setIsInView] = useState(false);
     const isMobile = useMedia("(max-width: 768px)");
-    console.log(isMobile)
     const [hasAnimated, setHasAnimated] = useState(false); // Trạng thái kiểm soát hiệu ứng đã chạy
 
     useEffect(() => {
